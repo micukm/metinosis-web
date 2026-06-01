@@ -129,7 +129,7 @@ export default function App() {
       <nav className="relative z-20 px-6 py-6 flex items-center justify-between max-w-6xl mx-auto w-full">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
-          <img src="/logo.png" alt="Metinosis" className="h-10 w-10 object-contain" />
+          <img src="/logo-nobg.png" alt="Metinosis" className="h-10 w-10 object-contain" />
         </div>
 
         {/* Center pill nav */}
