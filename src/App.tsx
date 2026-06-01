@@ -167,10 +167,11 @@ export default function App() {
 
       {/* Hero */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center">
-        <p className="text-white/50 text-xs font-semibold tracking-widest uppercase mb-4">Educación y Aprendizaje</p>
-        <h1 className="text-5xl md:text-6xl lg:text-7xl text-white mb-8 tracking-tight whitespace-nowrap font-bold">
+        <p className="text-white text-xs font-semibold tracking-widest uppercase mb-4">Educación y Aprendizaje</p>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl text-white mb-6 tracking-tight whitespace-nowrap font-bold">
           METINOSIS
         </h1>
+        <img src="/logo-nobg.png" alt="Metinosis" className="h-24 w-24 object-contain mb-8" />
       </div>
 
       {/* Social icons */}
