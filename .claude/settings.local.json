@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd.exe /c \"where node\")",
+      "Bash(cmd.exe /c \"where npm\")",
+      "Bash(cmd.exe /c \"where git && where gh && where docker\")",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(docker --version)",
+      "Bash(cmd.exe /c \"where gh 2>&1\")",
+      "Bash(cmd.exe /c \"where docker 2>&1\")",
+      "Bash(cmd.exe /c \"gh --version\")",
+      "Bash(cmd.exe /c \"docker --version\")",
+      "Bash(cmd.exe /c \"gh --version && echo GH_OK\")",
+      "Read(//c/Users/micuk/AppData/Local/GitHubCLI/**)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Users/micuk/**)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
