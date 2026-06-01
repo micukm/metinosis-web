@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { Globe, ArrowRight, Instagram, Twitter } from 'lucide-react'
 
 const VIDEO_URL = '/hero.mp4'
@@ -6,10 +6,13 @@ const VIDEO_URL = '/hero.mp4'
 const FADE_DURATION = 500
 const FADE_OUT_THRESHOLD = 0.55
 
+const NAV_LINKS = ['Features', 'Pricing', 'Science', 'Plans', 'About']
+
 export default function App() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const fadingOutRef = useRef(false)
   const rafRef = useRef<number | null>(null)
+  const [activeNav, setActiveNav] = useState('Features')
 
   function cancelRaf() {
     if (rafRef.current !== null) {
@@ -108,7 +111,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black overflow-hidden flex flex-col">
+    <div className="min-h-screen bg-black overflow-hidden flex flex-col" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* Background video */}
       <div className="absolute inset-0">
         <video
@@ -123,40 +126,51 @@ export default function App() {
       </div>
 
       {/* Nav */}
-      <nav className="relative z-20 pl-6 pr-6 py-6">
-        <div className="liquid-glass rounded-full px-6 py-3 flex items-center justify-between max-w-5xl mx-auto">
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2">
-              <Globe size={24} className="text-white" />
-              <span className="text-white font-semibold text-lg">Asme</span>
-            </div>
-            <div className="hidden md:flex items-center gap-8">
-              {['Features', 'Pricing', 'About'].map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="text-white/80 hover:text-white transition-colors text-sm font-medium"
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <button className="text-white text-sm font-medium">Sign Up</button>
-            <button className="liquid-glass rounded-full px-6 py-2 text-white text-sm font-medium">
-              Login
-            </button>
+      <nav className="relative z-20 px-6 py-6 flex items-center justify-between max-w-6xl mx-auto w-full">
+        {/* Logo */}
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center">
+            <Globe size={16} className="text-white" />
           </div>
         </div>
+
+        {/* Center pill nav */}
+        <div className="hidden md:flex items-center bg-black/70 border border-white/10 backdrop-blur-md rounded-full px-1.5 py-1.5 gap-0.5">
+          {NAV_LINKS.map((link) => (
+            <button
+              key={link}
+              onClick={() => setActiveNav(link)}
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                activeNav === link
+                  ? 'bg-white text-black'
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
+              {link}
+            </button>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <button className="hidden md:flex items-center gap-2 bg-black/70 border border-white/10 backdrop-blur-md rounded-full px-5 py-2 text-white text-sm font-medium hover:bg-white/10 transition-colors">
+          <span className="w-2 h-2 rounded-full bg-green-400 flex-shrink-0" />
+          Get Started
+        </button>
+
+        {/* Mobile menu placeholder */}
+        <button className="md:hidden text-white/70 hover:text-white transition-colors">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
       </nav>
 
       {/* Hero */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center -translate-y-[20%]">
-        <h1
-          className="text-5xl md:text-6xl lg:text-7xl text-white mb-8 tracking-tight whitespace-nowrap"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
-        >
+        <p className="text-white/50 text-xs font-semibold tracking-widest uppercase mb-4">Asme</p>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl text-white mb-8 tracking-tight whitespace-nowrap font-bold">
           Built for the curious
         </h1>
 
@@ -167,6 +181,7 @@ export default function App() {
               type="email"
               placeholder="Enter your email"
               className="flex-1 bg-transparent text-white placeholder:text-white/40 text-base outline-none"
+              style={{ fontFamily: "'Inter', sans-serif" }}
             />
             <button className="bg-white rounded-full p-3 text-black flex-shrink-0">
               <ArrowRight size={20} />
@@ -174,7 +189,7 @@ export default function App() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-white text-sm leading-relaxed px-4">
+          <p className="text-white/60 text-sm leading-relaxed px-4">
             Stay updated with the latest news and insights. Subscribe to our newsletter today and
             never miss out on exciting updates.
           </p>
