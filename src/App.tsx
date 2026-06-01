@@ -128,10 +128,8 @@ export default function App() {
       {/* Nav */}
       <nav className="relative z-20 px-6 py-6 flex items-center justify-between max-w-6xl mx-auto w-full">
         {/* Logo */}
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center">
-            <Globe size={16} className="text-white" />
-          </div>
+        <div className="flex items-center flex-shrink-0">
+          <img src="/logo.png" alt="Metinosis" className="h-10 w-10 object-contain" />
         </div>
 
         {/* Center pill nav */}
