@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
-import { Globe, ArrowRight, Instagram, Twitter } from 'lucide-react'
+import { Globe, Instagram, Twitter } from 'lucide-react'
 
 const VIDEO_URL = '/hero.mp4'
 
@@ -120,7 +120,7 @@ export default function App() {
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover translate-y-[17%]"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ opacity: 0 }}
         />
       </div>
@@ -169,38 +169,10 @@ export default function App() {
 
       {/* Hero */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center -translate-y-[20%]">
-        <p className="text-white/50 text-xs font-semibold tracking-widest uppercase mb-4">Asme</p>
+        <p className="text-white/50 text-xs font-semibold tracking-widest uppercase mb-4">Educación y Aprendizaje</p>
         <h1 className="text-5xl md:text-6xl lg:text-7xl text-white mb-8 tracking-tight whitespace-nowrap font-bold">
-          Built for the curious
+          METINOSIS
         </h1>
-
-        <div className="max-w-xl w-full space-y-4">
-          {/* Email bar */}
-          <div className="liquid-glass rounded-full pl-6 pr-2 py-2 flex items-center gap-3">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 bg-transparent text-white placeholder:text-white/40 text-base outline-none"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            />
-            <button className="bg-white rounded-full p-3 text-black flex-shrink-0">
-              <ArrowRight size={20} />
-            </button>
-          </div>
-
-          {/* Subtitle */}
-          <p className="text-white/60 text-sm leading-relaxed px-4">
-            Stay updated with the latest news and insights. Subscribe to our newsletter today and
-            never miss out on exciting updates.
-          </p>
-
-          {/* Manifesto button */}
-          <div className="flex justify-center">
-            <button className="liquid-glass rounded-full px-8 py-3 text-white text-sm font-medium hover:bg-white/5 transition-colors">
-              Read our manifesto
-            </button>
-          </div>
-        </div>
       </div>
 
       {/* Social icons */}
